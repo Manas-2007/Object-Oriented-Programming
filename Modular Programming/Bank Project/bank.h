@@ -14,8 +14,21 @@ class Bank{
     //Input  & output info function
     void input();
     void output();
-    
-    
+
+    //Login Function
+    int getid();
+    bool verifypin(int userpin);
+    void login();
+
+    //Deposit/withdraw/Balance Function
+    void deposit();
+    void withdraw();
+    void checkbalance();
+
+    //Clear screen
+    void clearscreen();
+
+  
     
 
 };

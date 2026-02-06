@@ -37,21 +37,97 @@ void Bank::input()
     getline(cin,actype);
     cout<<"Set Security PIN: ";
     cin>>mainpin;
+    cout<<"Date of Birth : ";
+    getline(cin,dob);
+    cin>>mainpin;
     cin.ignore();
     cout<<"CONTACT NO:";
     getline(cin,contact);
     cout<<"ADDRESS: ";
+    cin.ignore();
     getline(cin,address);    
 }
 
 void Bank::output()
 {
-    cout<<"ID : "<<id<<"\n";
-    cout<<"NAME : "<<name<<endl;
-    cout<<"ACCOUNT : "<<actype<<endl;
+    cout<<"\n=================================================================================================\n";
+    cout<<"                                  ACCOUNT HOLDER INFORMATION                                       \n";
+    cout<<"\n=================================================================================================\n";
+    cout<<"ID            : "<<id<<"\n";
+    cout<<"NAME          : "<<name<<endl;
+    cout<<"ACCOUNT       : "<<actype<<endl;
     cout<<"DATE OF BIRTH : "<<dob<<endl;
-    cout<<"CONTACT NO. : "<<contact<<endl;  
-    cout<<"ADDRESS :  "<<address<<endl;
+    cout<<"CONTACT NO.   : "<<contact<<endl;  
+    cout<<"ADDRESS       :  "<<address<<endl;
 }
 
+//Login Function
+int Bank::getid()
+{
+    return id;
+}
+bool Bank::verifypin(int userpin)
+{
+    return userpin==mainpin;
+}
+void Bank::login()
+{
+    int userpin=-1;
+    while(mainpin!=userpin)
+    {
+       cout<<"Enter Security PIN : ";
+       cin>>userpin;
+       if(mainpin!=userpin) 
+       {
+        cout<<"\n......INVALID PIN! TRY AGAIN........\n";
+       }
+    }
+    cout<<"......LOGIN SUCCESSFUL.......\n";
+}
 
+//Deposit Function
+void Bank::deposit()
+{
+    int userdeposit;
+    cout<<"Enter Amount : ";
+    cin>>userdeposit;
+    if(userdeposit>0)
+    {
+    balance=balance+userdeposit;
+    }
+    else{
+        cout<<"...INVALID BALANCE! TRY AGAIN.....\n\n";
+    }
+}
+
+//Withdraw function
+void Bank::withdraw()
+{
+    int userwithdraw;
+    cout<<"Enter Amount : ";
+    cin>>userwithdraw;
+    if(userwithdraw>0 && userwithdraw<=balance)
+    {
+        balance=balance-userwithdraw;
+    }
+    else
+    {
+        cout<<".......INSUFFICIENT ACCOUNT BALANCE.........\n\n";
+    }
+
+}
+
+//Balance Check function
+void Bank::checkbalance()
+{
+    cout<<"AVAILABLE BALANCE : "<<balance<<endl;
+}
+
+//Clear screen function
+void Bank::clearscreen()
+{
+    cout << "\nPress Enter to continue...";
+    cin.ignore();   // clear buffer
+    cin.get();      // wait for enter
+    system("cls");  // clear screen (windows)
+}
