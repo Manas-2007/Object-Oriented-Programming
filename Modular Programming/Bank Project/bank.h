@@ -24,12 +24,6 @@ class Bank{
     void deposit();
     void withdraw();
     void checkbalance();
-
-    //Clear screen
-    void clearscreen();
-
-  
-    
-
 };
 #endif
+ 

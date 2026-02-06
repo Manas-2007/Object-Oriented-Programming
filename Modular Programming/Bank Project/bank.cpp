@@ -30,23 +30,28 @@ void Bank::input()
 {
     cout<<"ID: ";
     cin>>id;
-    cin.ignore();
+    cin.ignore();  
+
     cout<<"NAME: ";
     getline(cin,name);
+
     cout<<"ACCOUNT TYPE (Saving/Current): ";
     getline(cin,actype);
+
     cout<<"Set Security PIN: ";
     cin>>mainpin;
-    cout<<"Date of Birth : ";
+    cin.ignore();   
+
+    cout<<"Date of Birth: ";
     getline(cin,dob);
-    cin>>mainpin;
-    cin.ignore();
-    cout<<"CONTACT NO:";
-    getline(cin,contact);
+
+    cout<<"CONTACT NO: ";
+    getline(cin,contact);  
+
     cout<<"ADDRESS: ";
-    cin.ignore();
-    getline(cin,address);    
+    getline(cin,address);
 }
+
 
 void Bank::output()
 {
@@ -94,6 +99,7 @@ void Bank::deposit()
     if(userdeposit>0)
     {
     balance=balance+userdeposit;
+    cout<<".......................DEPOSIT SUCCESSFUL...........................\n\n";
     }
     else{
         cout<<"...INVALID BALANCE! TRY AGAIN.....\n\n";
@@ -109,6 +115,7 @@ void Bank::withdraw()
     if(userwithdraw>0 && userwithdraw<=balance)
     {
         balance=balance-userwithdraw;
+         cout<<".......................WITHDRAW SUCCESSFUL...........................\n\n";
     }
     else
     {
@@ -123,11 +130,3 @@ void Bank::checkbalance()
     cout<<"AVAILABLE BALANCE : "<<balance<<endl;
 }
 
-//Clear screen function
-void Bank::clearscreen()
-{
-    cout << "\nPress Enter to continue...";
-    cin.ignore();   // clear buffer
-    cin.get();      // wait for enter
-    system("cls");  // clear screen (windows)
-}
