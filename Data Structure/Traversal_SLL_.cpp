@@ -14,7 +14,7 @@ int main()
     Node *n3=new Node;
     Node *n4=new Node;
     Node *n5=new Node;
-    Node *Head,*ptr;
+    Node *Head=NULL,*ptr;
 
     //Data Entry in nodes
     n1->data=10;
@@ -24,7 +24,7 @@ int main()
     n5->data=50;
 
     //Creating Links of the nodes
-    Head=n1;
+   Head=n1;
     n1->link=n2;
     n2->link=n3;
     n3->link=n4;
@@ -33,11 +33,22 @@ int main()
 
     ptr=Head;
 
-    while(ptr!=NULL)
+
+    if(Head==NULL)
     {
-        cout<<ptr->data<<"  "<<"\n";
-       ptr= ptr->link;
+        cout<<"LIST IS EMPTY";
     }
+    else
+    {  
+        while(ptr!=NULL)
+    {
+        int x=ptr->data;
+        cout<<x<<"  ";
+        cout<<x*x<<"  ";
+        cout<<"\n";
+        ptr= ptr->link;
+    }
+}
     return 0;
     
 
