@@ -1,68 +1,75 @@
 #include<iostream>
 using namespace std;
-class Complex{
+class Math{
     public:
-    int real,imaginary;
-
-    //Default constructor
-    Complex()
+    int number;
+    
+    //Default Constructor
+    Math()
     {
-        real=0;
-        imaginary=0;
+        number=0;
     }
 
     //Parameterised constructor
-    Complex(int real,int imaginary)
+    Math(int number)
     {
-        this->real=real;
-        this->imaginary=imaginary;
+        this->number=number;
     }
 
-    //Operator overloading (+ operator)
-    Complex operator +(Complex x)
+    //Overloading (+)
+    Math operator +(Math &x)
     {
-        Complex result;
-        result.real=real+x.real;
-        result.imaginary=imaginary+x.imaginary;
-        return result;
+        int sum;
+        sum=number+x.number;
+        cout<<"The sum is "<<sum<<"\n\n";
     }
 
-    //Operator overloading (- operator)
-    Complex operator -(Complex x)
+    //Subtration (-)
+     Math operator -(Math &x)
     {
-        Complex result;
-        result.real=real-x.real;
-        result.imaginary=imaginary-x.imaginary;
-        return result;
+        int dif;
+        dif=number-x.number;
+        cout<<"The difference is "<<dif<<"\n\n";
     }
 
-    //Operator overlaoding (* operator)
-    Complex operator *(Complex x)
+    //Multiplication (*)
+     Math operator *(Math &x)
     {
-        Complex result;
-        int answer;
-        result.real=real * x.real;
-        result.imaginary=imaginary * x.imaginary;
-        result.imaginary=(-1)*result.imaginary;
-        answer=result.imaginary+result.real;
-        
-        cout<<"THE PRODUCT OF COMPLEX NUMBER IS : "<<answer<<"\n";
+        int product;
+        product=number*x.number;
+        cout<<"The Product is "<<product<<"\n\n";
     }
-    
-    //Output function
-    void display()
+
+    //Divison (/)
+     Math operator /(Math &x)
     {
-        cout<<"RESULT : : "<<real<<" + i"<<imaginary<<"\n";
+        int Division;
+        Division=number/x.number;
+        cout<<"The Division is "<<Division<<"\n\n";
+    }
+
+    //Increment (++)
+    Math operator ++()
+    {
+        number=number+1;
+        cout<<"AFTER INCREMENT BY 1 : "<<number<<"\n\n";
     }
 };
 int main()
 {
-    Complex c1(12,45);
-    Complex c2(5,2);
-    Complex c3=c1+c2; 
-    Complex c4=c1-c2;
-    Complex c5=c1*c2;
-    c3.display();
-    c4.display();
-    return 0;
+    int a,b;
+    cout<<"ENTER FIRST NUMBER:";
+    cin>>a;
+    cout<<"ENTER SECOND NUMBER:";
+    cin>>b;
+    Math m1(a);
+    Math m2(b);
+    Math m3=m1+m2;
+    m3=m1-m2;
+    m3=m1*m2;
+    m3=m1/m2;
+    m1.operator++();
+    m2.operator++();
+
+
 }
