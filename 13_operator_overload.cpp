@@ -23,9 +23,9 @@ class Math{
         sum=number+x.number;
         cout<<"The sum is "<<sum<<"\n\n";
     }
-
+ 
     //Subtration (-)
-     Math operator -(Math &x)
+     Math operator -(Math x)
     {
         int dif;
         dif=number-x.number;
@@ -33,15 +33,15 @@ class Math{
     }
 
     //Multiplication (*)
-     Math operator *(Math &x)
+     Math operator *(Math x)
     {
-        int product;
+        int product;  
         product=number*x.number;
         cout<<"The Product is "<<product<<"\n\n";
     }
 
     //Divison (/)
-     Math operator /(Math &x)
+     Math operator /(Math x)
     {
         int Division;
         Division=number/x.number;
@@ -70,6 +70,7 @@ int main()
     m3=m1/m2;
     m1.operator++();
     m2.operator++();
+    
 
 
 }
