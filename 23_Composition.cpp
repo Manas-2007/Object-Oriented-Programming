@@ -9,8 +9,8 @@ class Vehicle{
 };
 
 class MyClass{
-    public:
     Vehicle x;
+        public:
     void display()
     {
         x.show();
@@ -22,4 +22,5 @@ int main()
 {
     MyClass x;
     x.display();
+    return 0;
 }
